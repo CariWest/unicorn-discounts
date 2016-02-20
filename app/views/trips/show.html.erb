@@ -1,0 +1,26 @@
+<h2><%= @trip.river %> — <%= @trip.name %></h2>
+
+<h3>Reservations</h3>
+<div>
+  <ul>
+    <% @reservations.each do |res| %>
+      <li><%= res.tour_tools_id %> — <%= res.organizer_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= form_for :reservation, url: trip_reservations_path(@trip) do |f| %>
+  <div>
+    <p><%= f.label :tour_tools_id %></p>
+    <p><%= f.text_field :tour_tools_id %></p>
+  </div>
+
+  <div>
+    <p><%= f.label :organizer_name %></p>
+    <p><%= f.text_field :organizer_name %></p>
+  </div>
+
+  <div>
+    <p><%= f.submit %></p>
+  </div>
+<% end %>

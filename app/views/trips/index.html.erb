@@ -2,7 +2,9 @@
 
 <ul>
   <% @trips.each do |trip| %>
-    <li><%= trip.river %> — <%= trip.name %></li>
+    <%= link_to trip do %>
+      <li><%= trip.river %> — <%= trip.name %></li>
+    <% end %>
   <% end %>
 </ul>
 
