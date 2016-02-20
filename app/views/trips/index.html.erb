@@ -1,0 +1,23 @@
+<h2>Trips</h2>
+
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= trip.river %> — <%= trip.name %></li>
+  <% end %>
+</ul>
+
+<%= form_for :trip, url: trips_path do |f| %>
+  <div>
+    <p><%= f.label :river %></p>
+    <p><%= f.text_field :river %></p>
+  </div>
+
+  <div>
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name %></p>
+  </div>
+
+  <div>
+    <p><%= f.submit %></p>
+  </div>
+<% end %>
