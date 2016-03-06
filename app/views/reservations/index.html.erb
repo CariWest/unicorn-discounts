@@ -1,0 +1,17 @@
+<h2>Reservations</h2>
+
+<div>
+  <ul>
+    <% @reservations.each do |reservation| %>
+      <li>
+        <%= link_to reservation_path(reservation) do %>
+          <%= reservation.tour_tools_id %>
+        <% end %> — <%= reservation.organizer_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h3>Create a Reservation</h3>
+  <%= render partial: "reservation_form", locals: { reservation: @reservation } %>
+</div>

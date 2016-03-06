@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root 'trips#index'
+  root 'reservations#index'
 
-  resources :trips do
-    resources :reservations
-  end
+  resources :reservations
 end

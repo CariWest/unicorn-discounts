@@ -1,28 +1,30 @@
 class ReservationsController < ApplicationController
   def index
-  end
-
-  def new
+    @reservations = Reservation.all
+    @reservation  = Reservation.new
   end
 
   def create
-    @reservation = trip.reservations.new(reservation_params)
+    @reservation = Reservation.new(reservation_params)
     @reservation.save
 
-    redirect_to trip_path(trip)
+    redirect_to reservations_path
   end
 
   def show
     @reservation = Reservation.find(params[:id])
   end
 
-  def edit
-  end
-
   def update
+    @reservation = Reservation.find(params[:id])
+
+    if @reservation.update(reservation_params)
+      redirect_to reservation_path(@reservation)
+    end
   end
 
   def destroy
+    # Not Implemented Yet
   end
 
   def trip
@@ -32,6 +34,8 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:trip_id, :tour_tools_id, :organizer_name)
+    params.require(:reservation).permit(:tour_tools_id,
+                                        :organizer_name,
+                                        :guest_count)
   end
 end

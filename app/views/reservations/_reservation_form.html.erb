@@ -1,0 +1,20 @@
+<%= form_for reservation do |f| %>
+  <div>
+    <p><%= f.label "Tour Tools Id" %></p>
+    <p><%= f.text_field :tour_tools_id %></p>
+  </div>
+
+  <div>
+    <p><%= f.label :organizer_name %></p>
+    <p><%= f.text_field :organizer_name %></p>
+  </div>
+
+  <div>
+    <p><%= f.label :guest_count %></p>
+    <p><%= f.text_field :guest_count %></p>
+  </div>
+
+  <div>
+    <p><%= f.submit %></p>
+  </div>
+<% end %>
