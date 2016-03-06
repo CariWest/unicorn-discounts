@@ -4,14 +4,17 @@
 <div>
   <ul>
     <% @reservations.each do |res| %>
-      <li><%= res.tour_tools_id %> — <%= res.organizer_name %></li>
+        <li>
+          <%= link_to trip_reservation_path(@trip, res) do %>
+            <%= res.tour_tools_id %>
+          <% end %> — <%= res.organizer_name %></li>
     <% end %>
   </ul>
 </div>
 
 <%= form_for :reservation, url: trip_reservations_path(@trip) do |f| %>
   <div>
-    <p><%= f.label :tour_tools_id %></p>
+    <p><%= f.label "Tour Tools Id" %></p>
     <p><%= f.text_field :tour_tools_id %></p>
   </div>
 
